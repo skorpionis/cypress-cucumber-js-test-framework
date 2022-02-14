@@ -1,0 +1,12 @@
+{
+    "baseUrl": "https://www.deinbett.de/",
+    "chromeWebSecurity": false,
+    "defaultCommandTimeout": 10000,
+    "pageLoadTiemOut": 30000,
+    "ignoreTestFiles": "**/other/*",
+
+    "env": {
+        "deinBett" : "https://www.deinbett.de/"
+    }
+    
+}

@@ -1,0 +1,33 @@
+{
+  "name": "cypress-cucumber-js-test-framework",
+  "version": "1.0.0",
+  "description": "cypress-cucumber-js-test-framework",
+  "main": "index.js",
+  "scripts": {
+    "triggerAllTests-headless": "npx cypress run",
+    "triggerAllTests-headed": "npx cypress run --headed",
+    "triggerAllTests-chrome": "npx cypress run --browser chrome",
+    "triggerAllTests-dashboard": "npx cypress run --record --key 8ea00e6c-0795-4bca-ad07-ed0a158d3f30",
+    "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/integration/webdriver-uni/*",
+    "triggerAllTests-webdriveruni-dashboard": "npx cypress run --spec cypress/integration/webdriver-uni/* --record --key 8ea00e6c-0795-4bca-ad07-ed0a158d3f30 --parallel --browser chrome --headed",
+    "triggerAllTests-autostore": "npx cypress run --spec cypress/integration/automation-test-store/*",
+    "triggerAllTests-autostore-dashboard": "npx cypress run --spec cypress/integration/automation-test-store/* --record --key 8ea00e6c-0795-4bca-ad07-ed0a158d3f30 --parallel --browser chrome --headed",
+    "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/integration/webdriver-uni/features/*.feature --browser chrome",
+    "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
+    "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
+    "delete-results": "rm -rf cypress/results/* || true",
+    "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge",
+    "triggerAllTests-staging": "npx cypress run --env configFile=staging",
+    "cypress-multi-browser": "npm run triggerAllTests-autostore -- --browser electron --headed & npm run triggerAllTests-autostore -- --browser edge --headed"
+  },
+  "author": "Ivan Sazonov",
+  "license": "",
+  "devDependencies": {
+    "cypress": "^6.5.0",
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-xpath": "^1.6.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false
+  }
+}
