@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 
 class HomePage {
     vositHomePage() {
@@ -6,7 +5,7 @@ class HomePage {
     }
 
     acceptCookies() {
-        cy.xpath("//button[text()='Alle auswählen & bestätigen']").click();
+        cy.xpath("//button[text()='Alle auswählen & bestätigen']").click()
     }
 
     clickOnLoginBtn() {

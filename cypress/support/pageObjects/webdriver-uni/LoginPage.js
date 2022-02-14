@@ -1,4 +1,3 @@
-a/// <reference types="cypress" />
 
 class LoginPage {
     
