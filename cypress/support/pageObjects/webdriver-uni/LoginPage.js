@@ -14,7 +14,7 @@ class LoginPage {
         cy.get('#loginPassword').type(Util.getRandomCredentials().password)
     }
 
-    loginBtnClick(){
+    submitLogin(){
         cy.get('#login-submit').click()
     }
 
