@@ -1,5 +1,25 @@
- 
+
 class Util {
+
+    static userRegistrationData = {
+        "name": this.randomLetters(),
+        "surname": this.randomLetters(),
+        "email": this.randomEmailGeneration(),
+        "password": this.randomPasswordWithLettersDigitsSymbols()
+    }
+
+    static getRandomCredentials() {
+        return this.userRegistrationData
+    }
+
+    static updateRegistrationData() {
+      this.userRegistrationData = {
+            "name": this.randomLetters(),
+            "surname": this.randomLetters(),
+            "email": this.randomEmailGeneration(),
+            "password": this.randomPasswordWithLettersDigitsSymbols()
+        }
+    }
 
     static randomLetters() {
         let charsArray = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -19,6 +39,19 @@ class Util {
         let emailAddress = this.randomLetters() + "@gmail" + domenArray.reverse(domenArray)[0]
         return emailAddress
     }
+
+    // static jsonStorageFunc() {
+    //     const jsonStorage = {
+    //         "name": this.randomLetters(),
+    //         "surname": this.randomLetters(),
+    //         "email": this.randomEmailGeneration(),
+    //         "password": this.randomPasswordWithLettersDigitsSymbols()
+    //     }
+    //     let json = JSON.stringify(jsonStorage);
+    //     console.log(json)
+    //     return json
+    // }
+
 }
 
 export default Util;

@@ -1,30 +1,30 @@
+/// <reference types="cypress" />
 import Util from "../test-utils/Util";
 
-class RegistrationPage{
-    
+class RegistrationPage {
+
     fillNameField() {
-        cy.get('#firstName').type(Util.randomLetters())
+        cy.get('#firstName').type(Util.getRandomCredentials().name)
     }
 
     fillSurnameField() {
-        cy.get('#lastName').type(Util.randomLetters())
+        cy.get('#lastName').type(Util.getRandomCredentials().surname)
     }
 
     fillEmailField() {
-        cy.get('.formInput__inputContainer > #email').type(Util.randomEmailGeneration())
-    }
-    
-    fillPasswordField(){
-        let pass = Util.randomPasswordWithLettersDigitsSymbols()
-        cy.get('#password').type(pass)
-        cy.get('#password2').type(pass)
+        cy.get('.formInput__inputContainer > #email').type(Util.getRandomCredentials().email)
     }
 
-    agreementCheckBox(){
+    fillPasswordField() {
+        cy.get('#password').type(Util.getRandomCredentials().password)
+        cy.get('#password2').type(Util.getRandomCredentials().password)
+    }
+
+    agreementCheckBox() {
         cy.xpath("//span[contains(text(),'Ja, ich stimme den')]/ancestor::div[@class='checkbox checkbox--alignTop']").click()
     }
 
-    submitRegistrationBtnClick(){
+    submitRegistrationBtnClick() {
         cy.get('#register-submit').click()
     }
 }
