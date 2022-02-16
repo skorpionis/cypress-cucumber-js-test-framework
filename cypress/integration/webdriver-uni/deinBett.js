@@ -1,36 +1,31 @@
-import HomePage from '../../support/pageObjects/webdriver-uni/HomePage'
-import LoginPage from '../../support/pageObjects/webdriver-uni/LoginPage';
-import ProductPage from '../../support/pageObjects/webdriver-uni/ProductPage';
-import RegistrationPage from '../../support/pageObjects/webdriver-uni/RegistrationPage';
-import WishCartPage from '../../support/pageObjects/webdriver-uni/WishCart';
-import WishCart from '../../support/pageObjects/webdriver-uni/WishCart';
+import homePage from '../../support/pageObjects/webdriver-uni/HomePage'
+import loginPage from '../../support/pageObjects/webdriver-uni/LoginPage'
+import productPage from '../../support/pageObjects/webdriver-uni/ProductPage'
+import registrationPage from '../../support/pageObjects/webdriver-uni/RegistrationPage'
+import wishCartPage from '../../support/pageObjects/webdriver-uni/WishCartPage';
 /// <reference types="cypress" />
+
 
 describe("check registration", () => {
     it("registration new user", () => {
-        const homePage = new HomePage();
-        const loginPage = new LoginPage();
-        const registrationPage = new RegistrationPage()
 
-        homePage.vositHomePage();
-        homePage.acceptCookies();
+        homePage.visitHomePage();
+        homePage.clickAndAcceptCookies();
         homePage.clickOnLoginBtn();
 
         loginPage.clickOnRegistrationBtnClick();
 
         registrationPage.fillNameField()
-        registrationPage.fillSurnameField();
+        registrationPage.fillSurNameField();
         registrationPage.fillEmailField();
         registrationPage.fillPasswordField();
-        registrationPage.agreementCheckBox();
+        registrationPage.agreementCheckBoxClick();
         registrationPage.submitRegistrationBtnClick();
     })
 
     // it("login with authorized user", () => {
-    //     const homePage = new HomePage();
-    //     const loginPage = new LoginPage();
 
-    //     homePage.vositHomePage();
+    //     homePage.visitHomePage();
     //     homePage.acceptCookies();
     //     homePage.clickOnLoginBtn();
 
@@ -40,29 +35,23 @@ describe("check registration", () => {
     // })
 
     it("login with authorized user to add products in wishlist", () => {
-        const homePage = new HomePage();
-        const loginPage = new LoginPage();
-        const productPage = new ProductPage();
-        const wishCartPage = new WishCartPage();
 
-        homePage.vositHomePage();
-        homePage.acceptCookies();
-    
-        // homePage.clickOnProductType();
+        homePage.visitHomePage();
+        homePage.clickAndAcceptCookies();
+
         homePage.clickOnMatratzCategory();
         homePage.clickOnLoginBtn();
 
         loginPage.loginInput();
         loginPage.passwordInput();
         loginPage.submitLogin();
+        loginPage.waiter();
 
-        productPage.listProducts();
-        productPage.scrollUpToGetWishList();
+        productPage.addPorductCardsToWishList();
+        productPage.scrollUpToClickWishList();
         productPage.clickOnWishList();
 
         wishCartPage.fillIndexInWishList();
         wishCartPage.addToBasketFromWishList();
-
-
     })
 })

@@ -13,7 +13,7 @@ class Util {
     }
 
     static updateRegistrationData() {
-      this.userRegistrationData = {
+        this.userRegistrationData = {
             "name": this.randomLetters(),
             "surname": this.randomLetters(),
             "email": this.randomEmailGeneration(),
@@ -39,21 +39,6 @@ class Util {
         let emailAddress = this.randomLetters() + "@gmail" + domenArray.reverse(domenArray)[0]
         return emailAddress
     }
-
-    // static jsonStorageFunc() {
-    //     const jsonStorage = {
-    //         "name": this.randomLetters(),
-    //         "surname": this.randomLetters(),
-    //         "email": this.randomEmailGeneration(),
-    //         "password": this.randomPasswordWithLettersDigitsSymbols()
-    //     }
-    //     let json = JSON.stringify(jsonStorage);
-    //     console.log(json)
-    //     return json
-    //skorp9393@ail.ru
-    // !12345678sK
-    // }
-
 }
 
 export default Util;

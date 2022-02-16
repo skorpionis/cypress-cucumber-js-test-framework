@@ -1,32 +1,45 @@
 /// <reference types="cypress" />
 import Util from "../test-utils/Util";
+import BasePage from "./BasePage";
 
-class RegistrationPage {
+class RegistrationPage extends BasePage {
+    generatedEmail = Util.getRandomCredentials().email
+    generatedPassword = Util.getRandomCredentials().password
+    generatedName = Util.getRandomCredentials().name
+    generatedSurname = Util.getRandomCredentials().surname
+
+    emailField = '.formInput__inputContainer > #email'
+    nameField = '#firstName'
+    surnamField = '#lastName'
+    password = '#password'
+    password2 = '#password2'
+    agreementCheckBox = "//span[contains(text(),'Ja, ich stimme den')]/ancestor::div[@class='checkbox checkbox--alignTop']"
+    submitRegisterBtn = '#register-submit'
 
     fillNameField() {
-        cy.get('#firstName').type(Util.getRandomCredentials().name)
+        this.fillField(this.nameField, this.generatedName)
     }
 
-    fillSurnameField() {
-        cy.get('#lastName').type(Util.getRandomCredentials().surname)
+    fillSurNameField() {
+        this.fillField(this.surnamField, this.generatedSurname)
     }
 
     fillEmailField() {
-        cy.get('.formInput__inputContainer > #email').type(Util.getRandomCredentials().email)
+        this.fillField(this.emailField, this.generatedEmail)
     }
 
     fillPasswordField() {
-        cy.get('#password').type(Util.getRandomCredentials().password)
-        cy.get('#password2').type(Util.getRandomCredentials().password)
+        this.fillField(this.password, this.generatedPassword)
+        this.fillField(this.password2, this.generatedPassword)
     }
 
-    agreementCheckBox() {
-        cy.xpath("//span[contains(text(),'Ja, ich stimme den')]/ancestor::div[@class='checkbox checkbox--alignTop']").click()
+    agreementCheckBoxClick() {
+        this.clickMethodByXpath(this.agreementCheckBox)
     }
 
     submitRegistrationBtnClick() {
-        cy.get('#register-submit').click()
+        this.clickMethod(this.submitRegisterBtn)
     }
 }
 
-export default RegistrationPage;
+export default new RegistrationPage;

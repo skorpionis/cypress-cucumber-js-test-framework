@@ -1,22 +1,22 @@
+import BasePage from "./BasePage";
 
-class ProductPage {
-    listProducts() {
-        // cy.xpath("//div[@class='wishlistIcon wishlistIcon--pointer']")
-        cy.get("[class='wishlistIcon wishlistIcon--pointer']").each((item, index, list) => {
-            // console.log(list)
+class ProductPage extends BasePage {
+    
+    pointToAdd = "[class='wishlistIcon wishlistIcon--pointer']"
+    countOfProductCardToAdd = 5
+    logoToScrollTo = '.logo__icon > svg'
+    wishListBtn = "//a[@href='/wunschliste'][@target='_self']"
 
-            for (index; index < 5; index++) {
-                cy.wrap(item).click()
-            }
-        }).wait(5000)
+    addPorductCardsToWishList() {
+        this.addingSeveralCardsToWishList(this.pointToAdd, this.countOfProductCardToAdd)
     }
 
-    scrollUpToGetWishList() {
-        cy.get('.logo__icon > svg').scrollIntoView()
+    scrollUpToClickWishList() {
+        this.scrollUpToGetWishList(this.logoToScrollTo)
     }
 
     clickOnWishList() {
-        cy.xpath("//a[@href='/wunschliste'][@target='_self']").click()
+        this.clickMethodByXpath(this.wishListBtn)
     }
 }
-export default ProductPage;
+export default new ProductPage;

@@ -23,3 +23,4 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+// node_modules/.bin/cypress open

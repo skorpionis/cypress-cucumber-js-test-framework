@@ -1,23 +1,36 @@
 /// <reference types="cypress" />
 import Util from "../test-utils/Util";
-class LoginPage {
-    
+import BasePage from "./BasePage";
+
+class LoginPage extends BasePage {
+
+    registerAccountBtn = '#registerAccount'
+    emailField = '#loginEmail'
+    passwordField = '#loginPassword'
+    loginSubmitBtn = '#login-submit'
+
+    generatedEmail = Util.getRandomCredentials().email
+    generatedPassword = Util.getRandomCredentials().password
+
     clickOnRegistrationBtnClick() {
-        cy.get('#registerAccount').click()
+        this.clickMethod(this.registerAccountBtn)
     }
 
-    loginInput(){
-        cy.get('#loginEmail').type(Util.getRandomCredentials().email)
+    loginInput() {
+        this.fillField(this.emailField, this.generatedEmail)
     }
 
-    passwordInput(){
-        cy.get('#loginPassword').type(Util.getRandomCredentials().password)
+    passwordInput() {
+        this.fillField(this.passwordField, this.generatedPassword)
     }
 
-    submitLogin(){
-        cy.get('#login-submit').click()
+    submitLogin() {
+        this.clickMethod(this.loginSubmitBtn)
     }
 
+    waiter() {
+        this.wait()
+    }
 }
 
-export default LoginPage;
+export default new LoginPage;
