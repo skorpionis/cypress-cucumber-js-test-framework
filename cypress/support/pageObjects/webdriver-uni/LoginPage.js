@@ -4,28 +4,28 @@ import BasePage from "./BasePage";
 
 class LoginPage extends BasePage {
 
-    registerAccountBtn = '#registerAccount'
-    emailField = '#loginEmail'
-    passwordField = '#loginPassword'
-    loginSubmitBtn = '#login-submit'
+    #registerAccountBtn = '#registerAccount'
+    #emailField = '#loginEmail'
+    #passwordField = '#loginPassword'
+    #loginSubmitBtn = '#login-submit'
 
-    generatedEmail = Util.getRandomCredentials().email
-    generatedPassword = Util.getRandomCredentials().password
+    #generatedEmail = Util.getRandomCredentials().email
+    #generatedPassword = Util.getRandomCredentials().password
 
     clickOnRegistrationBtnClick() {
-        this.clickMethod(this.registerAccountBtn)
+        this.clickMethod(this.#registerAccountBtn)
     }
 
     loginInput() {
-        this.fillField(this.emailField, this.generatedEmail)
+        this.fillField(this.#emailField, this.#generatedEmail)
     }
 
     passwordInput() {
-        this.fillField(this.passwordField, this.generatedPassword)
+        this.fillField(this.#passwordField, this.#generatedPassword)
     }
 
     submitLogin() {
-        this.clickMethod(this.loginSubmitBtn)
+        this.clickMethod(this.#loginSubmitBtn)
     }
 
     waiter() {

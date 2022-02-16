@@ -23,16 +23,16 @@ describe("check registration", () => {
         registrationPage.submitRegistrationBtnClick();
     })
 
-    // it("login with authorized user", () => {
+    it("login with authorized user", () => {
 
-    //     homePage.visitHomePage();
-    //     homePage.acceptCookies();
-    //     homePage.clickOnLoginBtn();
+        homePage.visitHomePage();
+        homePage.clickAndAcceptCookies();
+        homePage.clickOnLoginBtn();
 
-    //     loginPage.loginInput();
-    //     loginPage.passwordInput();
-    //     loginPage.loginBtnClick();
-    // })
+        loginPage.loginInput();
+        loginPage.passwordInput();
+        loginPage.submitLogin();
+    })
 
     it("login with authorized user to add products in wishlist", () => {
 
