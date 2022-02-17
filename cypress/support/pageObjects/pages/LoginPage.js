@@ -8,6 +8,7 @@ class LoginPage extends BasePage {
     #emailField = '#loginEmail'
     #passwordField = '#loginPassword'
     #loginSubmitBtn = '#login-submit'
+    #errorSign = '#loginEmail-error'
 
     #generatedEmail = Util.getRandomCredentials().email
     #generatedPassword = Util.getRandomCredentials().password
@@ -24,8 +25,16 @@ class LoginPage extends BasePage {
         this.fillField(this.#passwordField, this.#generatedPassword)
     }
 
+    passwordWrongInput(externalPassword) {
+        this.fillField(this.#passwordField, externalPassword)
+    }
+
     submitLogin() {
         this.clickMethod(this.#loginSubmitBtn)
+    }
+
+    checkForErrorSign() {
+        this.checkElementBePresented(this.#errorSign)
     }
 
     waiter() {

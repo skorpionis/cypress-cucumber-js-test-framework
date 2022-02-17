@@ -6,12 +6,13 @@ class HomePage extends BasePage {
     #loginBtn = '.headerBrand__element--login > .headerElement > .headerElement__link > .headerElement__icon'
     #productType = '.headerMenu__navigation'
     #matratzCategory = "a[href$='/matratzen'][target='_self']"
+    #mainPageSign = '[href="/paradies"] > .itemImage'
 
     visitHomePage() {
         this.clearCookiesHomePage()
         cy.visit(Cypress.env("deinBett"))
     }
-    
+
     clickAndAcceptCookies() {
         this.clickMethodByXpath(this.#cookiesAccept)
     }
@@ -30,6 +31,10 @@ class HomePage extends BasePage {
 
     clearCookiesHomePage() {
         this.clearAllCookies()
+    }
+
+    checkForRegistrationCompleted() {
+        this.checkElementBePresented(this.#mainPageSign)
     }
 }
 

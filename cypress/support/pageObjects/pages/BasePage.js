@@ -21,6 +21,11 @@ class BasePage {
         cy.get(attribute).type(inputData)
     }
 
+    // fillFieldWithExternalData(attribute){
+    //     this.clickMethod(attribute)
+    //     cy.get(attribute).type(inputData)
+    // }
+
     clearAllCookies() {
         cy.clearCookies()
     }
@@ -37,8 +42,20 @@ class BasePage {
         this.getElement(attribute).scrollIntoView()
     }
 
+    checkElementBePresented(attribute) {
+        this.getElement(attribute).should('be.visible')
+    }
+
+    checkElementBePresentedByXpath(attribute) {
+        this.getElementByXpath(attribute).should('be.visible')
+    }
+
     getElement(attribute) {
         return cy.get(attribute)
+    }
+
+    getElementByXpath(attribute) {
+        return cy.xpath(attribute)
     }
 
     wait() {
