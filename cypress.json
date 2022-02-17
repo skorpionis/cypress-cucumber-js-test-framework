@@ -4,9 +4,11 @@
     "defaultCommandTimeout": 10000,
     "pageLoadTiemOut": 30000,
     "ignoreTestFiles": "**/other/*",
+    "testFiles": "**/*.{feature,features}",
 
     "env": {
         "deinBett" : "https://www.deinbett.de/"
     }
+    
     
 }

@@ -11,7 +11,7 @@ class HomePage extends BasePage {
         this.clearCookiesHomePage()
         cy.visit(Cypress.env("deinBett"))
     }
-
+    
     clickAndAcceptCookies() {
         this.clickMethodByXpath(this.#cookiesAccept)
     }
