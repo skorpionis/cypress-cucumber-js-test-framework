@@ -53,4 +53,5 @@ docker run -it -v ${PWD}:/e2e -w /e2e cypress/included:9.4.1 --spec cypress/inte
 
 if dockerFile exists
 
+docker build -t my-cypress-image:1.1.0 .
 docker run -i -v ${PWD}:/cypress-cucumber-js-test-framework -t my-cypress-image:1:0:0 --spec cypress/integration/*.feature
