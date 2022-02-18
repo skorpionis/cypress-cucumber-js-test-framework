@@ -1,11 +1,16 @@
 class BasePage {
 
     clickMethodByXpath(xpath) {
-        cy.xpath(xpath).click()
+        cy.xpath(xpath).should('be.visible').click()
+    }
+
+    clickAndAssertCheckboxByXpath(xpath, checkXpath, className) {
+        this.getElementByXpath(xpath).click()
+        cy.xpath(checkXpath).should('have.class', className)
     }
 
     dblClickMethodByXpath(xpath) {
-        cy.xpath(xpath).click()
+        this.getElementByXpath(xpath).should('be.visible').click()
     }
 
     dblClickMethod(path) {
@@ -13,18 +18,13 @@ class BasePage {
     }
 
     clickMethod(attribute) {
-        cy.get(attribute).click()
+        this.getElement(attribute).click()
     }
 
     fillField(attribute, inputData) {
         this.clickMethod(attribute)
-        cy.get(attribute).type(inputData)
+        this.getElement(attribute).type(inputData)
     }
-
-    // fillFieldWithExternalData(attribute){
-    //     this.clickMethod(attribute)
-    //     cy.get(attribute).type(inputData)
-    // }
 
     clearAllCookies() {
         cy.clearCookies()
@@ -39,11 +39,11 @@ class BasePage {
     }
 
     scrollUpToGetWishList(attribute) {
-        this.getElement(attribute).scrollIntoView()
+        cy.get(attribute).scrollIntoView()
     }
 
     checkElementBePresented(attribute) {
-        this.getElement(attribute).should('be.visible')
+        this.getElement(attribute)
     }
 
     checkElementBePresentedByXpath(attribute) {
@@ -51,16 +51,19 @@ class BasePage {
     }
 
     getElement(attribute) {
-        return cy.get(attribute)
+        return cy.get(attribute).should('be.visible')
     }
 
     getElementByXpath(attribute) {
-        return cy.xpath(attribute)
+        return cy.xpath(attribute).should('be.visible')
     }
 
     wait() {
         cy.wait(5000)
     }
 
+    checkElementNotPresented(attribute) {
+        cy.xpath(attribute).should('not.exist')
+    }
 }
 export default BasePage

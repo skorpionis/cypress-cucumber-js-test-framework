@@ -15,6 +15,8 @@ class RegistrationPage extends BasePage {
     #password2 = '#password2'
     #agreementCheckBox = "//span[contains(text(),'Ja, ich stimme den')]/ancestor::div[@class='checkbox checkbox--alignTop']"
     #submitRegisterBtn = '#register-submit'
+    #checkboxAssertClass = 'checkbox__checkbox checkbox__checkbox--alignTop checkbox__checkbox--checked'
+    #checkBoxXpathAfterClick = "//*[@class='checkbox__checkbox checkbox__checkbox--alignTop checkbox__checkbox--checked']"
 
     fillNameField() {
         this.fillField(this.#nameField, this.#generatedName)
@@ -34,7 +36,7 @@ class RegistrationPage extends BasePage {
     }
 
     agreementCheckBoxClick() {
-        this.clickMethodByXpath(this.#agreementCheckBox)
+        this.clickAndAssertCheckboxByXpath(this.#agreementCheckBox, this.#checkBoxXpathAfterClick, this.#checkboxAssertClass)
     }
 
     submitRegistrationBtnClick() {

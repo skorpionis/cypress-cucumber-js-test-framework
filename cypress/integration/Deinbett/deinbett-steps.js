@@ -102,3 +102,7 @@ And('There is an error with invalid password', () => {
     loginPage.checkForErrorSign()
 })
 
+But('There is a sign which must not being appeared', () => {
+    loginPage.checkForLoggedSignGreetings()
+})
+

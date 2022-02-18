@@ -17,6 +17,7 @@ Feature: Deinbett functional tests
         Given We access the deinbett page
         And   We accept cookies
         When  We click on login button at the top of the page
+        But   There is a sign which must not being appeared
         Then  We enter login
         And   We enter password
         Then  We submit login
@@ -25,10 +26,11 @@ Feature: Deinbett functional tests
         Given We access the deinbett page
         And   We accept cookies
         When  We click on login button at the top of the page
+        But   There is a sign which must not being appeared
         Then  We enter login
         And   We enter invalid password - password123
         Then  We submit login
-        And Wait some time for dowloading
+        And   Wait some time for dowloading
         And   There is an error with invalid password
 
     Scenario: Login with authorized user to add products in wishlist
@@ -36,6 +38,7 @@ Feature: Deinbett functional tests
         And   We accept cookies
         And   We click on the one of the categories such as Matratz
         When  We click on login button at the top of the page
+        But   There is a sign which must not being appeared
         Then  We enter login
         And   We enter password
         Then  We submit login

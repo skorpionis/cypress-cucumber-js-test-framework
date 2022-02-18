@@ -9,6 +9,7 @@ class LoginPage extends BasePage {
     #passwordField = '#loginPassword'
     #loginSubmitBtn = '#login-submit'
     #errorSign = '#loginEmail-error'
+    #errorSignWhenLoggedAlready = "//div[contains(text(),'Hallo')]"
 
     #generatedEmail = Util.getRandomCredentials().email
     #generatedPassword = Util.getRandomCredentials().password
@@ -35,6 +36,10 @@ class LoginPage extends BasePage {
 
     checkForErrorSign() {
         this.checkElementBePresented(this.#errorSign)
+    }
+
+    checkForLoggedSignGreetings(){
+        this.checkElementNotPresented(this.#errorSignWhenLoggedAlready)
     }
 
     waiter() {
