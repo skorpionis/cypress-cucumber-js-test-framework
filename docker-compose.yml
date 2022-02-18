@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  service:
+    build: .
+    working_dir: /app
+    command: npm run triggerAllTests-headless

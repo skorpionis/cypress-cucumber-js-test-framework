@@ -46,12 +46,5 @@ Create a folder "step_definitions" within cypress/support and place step definit
 
 For me it was very important to put the things above in these specific directories since these were the only locations where my files were actually found and run properly by cypress & cucumber.
 
-To run docker:
-if image was already created
-
-docker run -it -v ${PWD}:/e2e -w /e2e cypress/included:9.4.1 --spec cypress/integration/*.feature --browser chrome 
-
-if dockerFile exists
-
-docker build -t my-cypress-image:1.1.0 .
-docker run -i -v ${PWD}:/cypress-cucumber-js-test-framework -t my-cypress-image:1:0:0 --spec cypress/integration/*.feature
+To run docker and image type the command below in bash console:
+docker-compose up

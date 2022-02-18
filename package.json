@@ -4,8 +4,7 @@
   "description": "cypress-cucumber-js-test-framework",
   "main": "index.js",
   "scripts": {
-    "triggerAllTests-headless": "npx cypress run",
-    "triggerAllTests-headed": "npx cypress run --headed",
+    "triggerAllTests-headless": "npx cypress run --headless",
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
     "triggerAllTests-dashboard": "npx cypress run --record --key 8ea00e6c-0795-4bca-ad07-ed0a158d3f30",
     "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/integration/webdriver-uni/*",
